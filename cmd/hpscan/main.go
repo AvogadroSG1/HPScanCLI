@@ -388,8 +388,9 @@ func (s *scanCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...any) sub
 		DocumentFormat: mime,
 		InputSource:    s.source,
 		Duplex:         s.duplex,
-		Brightness:     1000,
-		Contrast:       1000,
+		Brightness:        1000,
+		Contrast:          1000,
+		CompressionFactor: 25,
 	}
 
 	log.Debug("starting scan", "settings", settings)
