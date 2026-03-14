@@ -3,7 +3,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
@@ -336,6 +335,10 @@ func (s *scanCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...any) sub
 	switch s.source {
 	case "Platen":
 		srcCaps = caps.Platen
+		if srcCaps == nil {
+			writeErr(os.Stderr, 4, "scanner does not have a platen", verbose, nil)
+			return 4
+		}
 	case "Adf":
 		if s.duplex {
 			srcCaps = caps.AdfDuplex
@@ -376,16 +379,17 @@ func (s *scanCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...any) sub
 	}
 
 	settings := escl.ScanSettings{
-		Height:         height,
-		Width:          width,
-		XResolution:    dpi,
-		YResolution:    dpi,
-		ColorMode:      s.color,
-		DocumentFormat: mime,
-		InputSource:    s.source,
-		Duplex:         s.duplex,
-		Brightness:     1000,
-		Contrast:       1000,
+		Height:            height,
+		Width:             width,
+		XResolution:       dpi,
+		YResolution:       dpi,
+		ColorMode:         s.color,
+		DocumentFormat:    mime,
+		InputSource:       s.source,
+		Duplex:            s.duplex,
+		Brightness:        1000,
+		Contrast:          1000,
+		CompressionFactor: 25,
 	}
 
 	log.Debug("starting scan", "settings", settings)
@@ -442,6 +446,3 @@ func contains(haystack []int, needle int) bool {
 	}
 	return false
 }
-
-// ensure json is used (for version output in non-pretty mode)
-var _ = json.Marshal
