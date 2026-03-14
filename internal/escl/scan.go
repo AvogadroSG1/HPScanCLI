@@ -102,7 +102,13 @@ func (c *Client) pollJob(ctx context.Context) (string, error) {
 // downloadDocument retrieves the scanned document from the scanner using
 // the download timeout.
 func (c *Client) downloadDocument(ctx context.Context, jobURI string) ([]byte, string, error) {
-	url := c.baseURL + jobURI + "/NextDocument"
+	// jobURI may be absolute (from Location header) or relative (from status polling)
+	var url string
+	if strings.HasPrefix(jobURI, "http://") || strings.HasPrefix(jobURI, "https://") {
+		url = jobURI + "/NextDocument"
+	} else {
+		url = c.baseURL + jobURI + "/NextDocument"
+	}
 	c.log.DebugContext(ctx, "downloading document", "url", url)
 
 	dlCtx, cancel := context.WithTimeout(ctx, c.dlTimeout)
