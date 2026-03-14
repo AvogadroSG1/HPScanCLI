@@ -6,8 +6,8 @@ import (
 
 func TestParseStatus(t *testing.T) {
 	tests := []struct {
-		name     string
-		fixture  string
+		name      string
+		fixture   string
 		wantState string
 		wantJobs  int
 	}{

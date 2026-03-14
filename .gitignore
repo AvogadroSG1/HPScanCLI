@@ -1,6 +1,6 @@
 # Binaries
-hpscan
-hpscan.exe
+/hpscan
+/hpscan.exe
 *.exe
 *.dll
 *.so
