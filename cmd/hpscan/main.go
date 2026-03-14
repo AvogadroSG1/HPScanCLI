@@ -447,6 +447,3 @@ func contains(haystack []int, needle int) bool {
 	}
 	return false
 }
-
-// ensure json is used (for version output in non-pretty mode)
-var _ = json.Marshal
