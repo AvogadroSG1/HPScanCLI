@@ -86,7 +86,7 @@ func (c *Client) Capabilities(ctx context.Context) (*CapabilitiesResponse, error
 		return nil, fmt.Errorf("unexpected status %d from ScannerCapabilities", resp.StatusCode)
 	}
 
-	body, err := io.ReadAll(resp.Body)
+	body, err := io.ReadAll(io.LimitReader(resp.Body, 1<<20)) // 1 MB max
 	if err != nil {
 		return nil, fmt.Errorf("reading capabilities response: %w", err)
 	}
