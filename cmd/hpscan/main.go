@@ -379,14 +379,14 @@ func (s *scanCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...any) sub
 	}
 
 	settings := escl.ScanSettings{
-		Height:         height,
-		Width:          width,
-		XResolution:    dpi,
-		YResolution:    dpi,
-		ColorMode:      s.color,
-		DocumentFormat: mime,
-		InputSource:    s.source,
-		Duplex:         s.duplex,
+		Height:            height,
+		Width:             width,
+		XResolution:       dpi,
+		YResolution:       dpi,
+		ColorMode:         s.color,
+		DocumentFormat:    mime,
+		InputSource:       s.source,
+		Duplex:            s.duplex,
 		Brightness:        1000,
 		Contrast:          1000,
 		CompressionFactor: 25,

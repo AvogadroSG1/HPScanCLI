@@ -4,11 +4,11 @@ go 1.26
 
 require (
 	github.com/google/go-cmp v0.7.0
+	github.com/google/subcommands v1.2.0
 	github.com/hashicorp/mdns v1.0.6
 )
 
 require (
-	github.com/google/subcommands v1.2.0 // indirect
 	github.com/miekg/dns v1.1.55 // indirect
 	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/net v0.34.0 // indirect
