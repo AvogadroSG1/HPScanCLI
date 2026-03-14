@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Synthetic fixture: one Processing job for testing -->
+<scan:ScannerStatus xmlns:scan="http://schemas.hp.com/imaging/escl/2011/05/03" xmlns:pwg="http://www.pwg.org/schemas/2010/12/sm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.hp.com/imaging/escl/2011/05/03 ../../schemas/eSCL.xsd">
+	<pwg:Version>2.63</pwg:Version>
+	<pwg:State>Processing</pwg:State>
+	<scan:Jobs>
+		<scan:JobInfo>
+			<pwg:JobUri>/eSCL/ScanJobs/abcd1234-5678-90ef-abcd-1234567890ab</pwg:JobUri>
+			<pwg:JobUuid>abcd1234-5678-90ef-abcd-1234567890ab</pwg:JobUuid>
+			<scan:Age>2</scan:Age>
+			<pwg:ImagesCompleted>0</pwg:ImagesCompleted>
+			<pwg:ImagesToTransfer>1</pwg:ImagesToTransfer>
+			<pwg:JobState>Processing</pwg:JobState>
+			<pwg:JobStateReasons>
+				<pwg:JobStateReason>JobScanning</pwg:JobStateReason>
+			</pwg:JobStateReasons>
+		</scan:JobInfo>
+	</scan:Jobs>
+</scan:ScannerStatus>

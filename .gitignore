@@ -1,0 +1,29 @@
+# Binaries
+hpscan
+hpscan.exe
+*.exe
+*.dll
+*.so
+*.dylib
+dist/
+
+# Test
+*.test
+*.out
+coverage.html
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Python test artifacts
+test_scan.jpg
