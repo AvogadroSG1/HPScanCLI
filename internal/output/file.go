@@ -18,11 +18,13 @@ var FormatExtension = map[string]string{
 	"png":  ".png",
 }
 
-// FormatMIME maps document format names to MIME types.
+// FormatMIME maps document format names to MIME types for the eSCL request.
+// PNG maps to image/jpeg because scanners don't produce PNG natively;
+// we request JPEG and convert to PNG locally.
 var FormatMIME = map[string]string{
 	"jpeg": "image/jpeg",
 	"pdf":  "application/pdf",
-	"png":  "image/png",
+	"png":  "image/jpeg",
 }
 
 // SaveFile writes data to a file in dir, returning the final path.
