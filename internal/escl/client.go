@@ -43,10 +43,18 @@ func New(ctx context.Context, baseURL string, opts ClientOptions) (*Client, erro
 		Timeout:   opts.ConnectTimeout,
 	}
 
+	// Separate transport for downloads — no ResponseHeaderTimeout because
+	// the scanner holds the connection open while physically scanning.
+	dlTransport := &http.Transport{
+		TLSClientConfig: &tls.Config{
+			InsecureSkipVerify: true,
+		},
+	}
+
 	// Separate client for downloads — no client-level timeout so the
 	// context-based dlTimeout controls the full scan+transfer duration.
 	dlHC := &http.Client{
-		Transport: transport,
+		Transport: dlTransport,
 	}
 
 	return &Client{
