@@ -13,6 +13,7 @@ import (
 // Client communicates with an eSCL-compatible scanner over HTTP.
 type Client struct {
 	hc        *http.Client
+	dlHC      *http.Client
 	baseURL   string
 	log       *slog.Logger
 	dlTimeout time.Duration
