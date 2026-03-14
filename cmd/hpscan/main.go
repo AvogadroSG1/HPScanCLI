@@ -336,6 +336,10 @@ func (s *scanCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...any) sub
 	switch s.source {
 	case "Platen":
 		srcCaps = caps.Platen
+		if srcCaps == nil {
+			writeErr(os.Stderr, 4, "scanner does not have a platen", verbose, nil)
+			return 4
+		}
 	case "Adf":
 		if s.duplex {
 			srcCaps = caps.AdfDuplex
