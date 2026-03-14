@@ -43,8 +43,15 @@ func New(ctx context.Context, baseURL string, opts ClientOptions) (*Client, erro
 		Timeout:   opts.ConnectTimeout,
 	}
 
+	// Separate client for downloads — no client-level timeout so the
+	// context-based dlTimeout controls the full scan+transfer duration.
+	dlHC := &http.Client{
+		Transport: transport,
+	}
+
 	return &Client{
 		hc:        hc,
+		dlHC:      dlHC,
 		baseURL:   baseURL,
 		log:       opts.Logger,
 		dlTimeout: opts.DownloadTimeout,
