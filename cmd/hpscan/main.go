@@ -128,9 +128,9 @@ func makeClient(ctx context.Context, ip string, useHTTPS bool, log *slog.Logger)
 type discoverCmd struct{}
 
 func (*discoverCmd) Name() string             { return "discover" }
-func (*discoverCmd) Synopsis() string          { return "find scanners on the local network" }
-func (*discoverCmd) Usage() string             { return "hpscan discover\n" }
-func (*discoverCmd) SetFlags(f *flag.FlagSet)  {}
+func (*discoverCmd) Synopsis() string         { return "find scanners on the local network" }
+func (*discoverCmd) Usage() string            { return "hpscan discover\n" }
+func (*discoverCmd) SetFlags(f *flag.FlagSet) {}
 
 func (d *discoverCmd) Execute(ctx context.Context, f *flag.FlagSet, args ...any) subcommands.ExitStatus {
 	log := args[0].(*slog.Logger)
@@ -181,8 +181,8 @@ type capabilitiesCmd struct {
 }
 
 func (*capabilitiesCmd) Name() string     { return "capabilities" }
-func (*capabilitiesCmd) Synopsis() string  { return "query and display scanner capabilities" }
-func (*capabilitiesCmd) Usage() string     { return "hpscan capabilities --ip <address>\n" }
+func (*capabilitiesCmd) Synopsis() string { return "query and display scanner capabilities" }
+func (*capabilitiesCmd) Usage() string    { return "hpscan capabilities --ip <address>\n" }
 
 func (c *capabilitiesCmd) SetFlags(f *flag.FlagSet) {
 	f.StringVar(&c.ip, "ip", "", "scanner IP address")
@@ -284,8 +284,8 @@ type scanCmd struct {
 }
 
 func (*scanCmd) Name() string     { return "scan" }
-func (*scanCmd) Synopsis() string  { return "perform a scan and save the result to a file" }
-func (*scanCmd) Usage() string     { return "hpscan scan --ip <address> [flags]\n" }
+func (*scanCmd) Synopsis() string { return "perform a scan and save the result to a file" }
+func (*scanCmd) Usage() string    { return "hpscan scan --ip <address> [flags]\n" }
 
 func (s *scanCmd) SetFlags(f *flag.FlagSet) {
 	f.StringVar(&s.ip, "ip", "", "scanner IP address")

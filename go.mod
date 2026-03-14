@@ -8,6 +8,7 @@ require (
 )
 
 require (
+	github.com/google/subcommands v1.2.0 // indirect
 	github.com/miekg/dns v1.1.55 // indirect
 	golang.org/x/mod v0.17.0 // indirect
 	golang.org/x/net v0.34.0 // indirect
