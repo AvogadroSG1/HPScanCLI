@@ -119,7 +119,7 @@ func (c *Client) downloadDocument(ctx context.Context, jobURI string) ([]byte, s
 		return nil, "", fmt.Errorf("creating download request: %w", err)
 	}
 
-	resp, err := c.hc.Do(req)
+	resp, err := c.dlHC.Do(req)
 	if err != nil {
 		return nil, "", fmt.Errorf("downloading document: %w", err)
 	}
